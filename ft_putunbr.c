@@ -11,11 +11,12 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-void	ft_putunbr(unsigned int i)
+void	ft_putunbr(unsigned int i, int *l)
 {
 	if (i > 9)
 	{
-		ft_putunbr(i / 10);
+		ft_putunbr(i / 10, l);
 	}
+	*l += 1;
 	ft_putchar_fd(i % 10 + 48, 1);
 }

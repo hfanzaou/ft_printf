@@ -14,7 +14,11 @@
 # define FT_PRINTF_H
 #include "libft/libft.h"
 #include <stdarg.h>
+#include <stdlib.h>
+
 int		ft_printf(const char *, ...);
-void	ft_putunbr(unsigned int i);
-void	ft_putnbr_base(int nbr, char *base);
+void	ft_putunbr(unsigned int i, int *l);
+void	ft_putnbr_base(unsigned long int nbr, char *base, int *l);
+void    ft_putstr(char *str, int *l);
+void    ft_putnbr(int n, int *l);
 #endif
