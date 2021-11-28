@@ -24,21 +24,20 @@ LIBNAME = libft/libft.a
 
 all : $(NAME)
 
-$(NAME) : $(OBJSR) $(LIBNAME)
+$(NAME) : $(OBJSR)
 
-$(LIBNAME) : 
-	make ./libft
+%.o: %.c
+	make -C ./libft
+	cp $(LIBNAME) $(NAME)
+	$(CC) -c $(CFLAGS) $(SRCS)
+	ar rcs $(NAME) $(OBJSR)
 
-$(OBJSR) : $(SRCS)
-	$(CC) $(CFLAGS) -c $<
-	ar rcs $(NAME) $(OBJSR) $(LIBNAME)
-
-clean :
-	make clean ./libft
-	rm -rf $(OBJS)
+clean : 
+	make clean -C ./libft
+	rm -rf $(OBJSR)
 
 fclean : clean
-	make fclean ./libft
-	rm -rf $(OBJS) $(NAME)
+	make fclean -C ./libft
+	rm -rf $(OBJSR) $(NAME)
 
 re : fclean all

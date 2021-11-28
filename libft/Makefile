@@ -37,7 +37,7 @@ all: $(NAME)
 $(NAME): $(OBJSRCS)
 
 %.o: %.c
-	$(CC) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 	ar rcs $(NAME) $@
 
 bonus: $(BOSRCS) $(OBJSRCS)
