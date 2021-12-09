@@ -6,11 +6,11 @@
 #    By: hfanzaou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/27 04:35:33 by hfanzaou          #+#    #+#              #
-#    Updated: 2021/11/27 04:58:46 by hfanzaou         ###   ########.fr        #
+#    Updated: 2021/12/09 12:57:18 by hfanzaou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = ft_putnbr.c ft_putstr.c ft_putunbr.c ft_putnbr_base.c ft_printf.c 
+SRCS = ft_putnbr.c ft_putstr.c ft_putunbr.c ft_putnbr_base.c ft_printf.c ft_putchar.c
 
 CC = cc
 
@@ -18,26 +18,24 @@ CFLAGS = -Wall -Werror -Wextra
 
 OBJSR = $(SRCS:.c=.o)
 
-NAME = libftprintf.a
+BOOJSR = $(SRCS:.c=.o)
 
-LIBNAME = libft/libft.a
+NAME = libftprintf.a
 
 all : $(NAME)
 
 $(NAME) : $(OBJSR)
 
 %.o: %.c
-	make -C ./libft
-	cp $(LIBNAME) $(NAME)
 	$(CC) -c $(CFLAGS) $(SRCS)
 	ar rcs $(NAME) $(OBJSR)
 
+bonus : $(BOOJSR)
+
 clean : 
-	make clean -C ./libft
 	rm -rf $(OBJSR)
 
 fclean : clean
-	make fclean -C ./libft
 	rm -rf $(OBJSR) $(NAME)
 
 re : fclean all

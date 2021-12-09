@@ -17,6 +17,5 @@ void	ft_putunbr(unsigned int i, int *l)
 	{
 		ft_putunbr(i / 10, l);
 	}
-	*l += 1;
-	ft_putchar_fd(i % 10 + 48, 1);
+	ft_putchar(i % 10 + 48, l);
 }

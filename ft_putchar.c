@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hfanzaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 03:21:46 by hfanzaou          #+#    #+#             */
-/*   Updated: 2021/11/26 22:13:32 by hfanzaou         ###   ########.fr       */
+/*   Created: 2021/12/09 10:58:37 by hfanzaou          #+#    #+#             */
+/*   Updated: 2021/12/09 10:58:39 by hfanzaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-void	ft_putnbr_base(unsigned long int nbr, char *base, int *l)
+void	ft_putchar(char c, int *l)
 {
-	unsigned long int	i;
-
-	i = 0;
-	while (base[i])
-		i++;
-	if (nbr > i - 1)
-	{
-		ft_putnbr_base(nbr / i, base, l);
-	}
-	ft_putchar(base[nbr % i], l);
+	*l += 1;
+	write(1, &c, 1);
 }

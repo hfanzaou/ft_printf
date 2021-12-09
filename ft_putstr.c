@@ -11,17 +11,16 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-void    ft_putstr(char *str, int *l)
+void	ft_putstr(char *str, int *l)
 {
-    if (!str)
+	if (!str)
 	{
 		ft_putstr("(null)", l);
 		return ;
 	}
 	while (*str)
 	{
-		ft_putchar_fd(*str, 1);
-		*l += 1;
-        str++;
-    }    
+		ft_putchar(*str, l);
+		str++;
+	}
 }

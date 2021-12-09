@@ -11,21 +11,19 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-void    ft_putnbr(int n, int *l)
+void	ft_putnbr(int n, int *l)
 {
-    unsigned int	i;
+	unsigned int	i;
 
 	i = n;
 	if (n < 0)
 	{
 		i = -n;
-		*l += 1;
-		ft_putchar_fd('-', 1);
+		ft_putchar('-', l);
 	}
 	if (i > 9)
 	{
 		ft_putnbr(i / 10, l);
 	}
-    *l += 1;
-	ft_putchar_fd(i % 10 + 48, 1);
+	ft_putchar(i % 10 + 48, l);
 }
